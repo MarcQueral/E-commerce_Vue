@@ -41,6 +41,8 @@ app.component('product-display', {
 
             </div>
         </div>
+        <review-list v-if="reviews.length" :reviews="reviews"></review-list>
+        <review-form @review-submitted="addReview"></review-form>
     </div>`,
   data() {
     return {
@@ -52,7 +54,8 @@ app.component('product-display', {
         variants: [
             {id: 2234, color: 'orange', image: './assets/images/pilota_futbol_taronja.jpg', quantity: 50 },
             {id: 2235, color: 'white', image: './assets/images/pilota_futbol_blanca.jpg', quantity: 0 },
-        ]
+        ],
+        reviews: []
     }
     },
     methods: {
@@ -62,6 +65,9 @@ app.component('product-display', {
         updateVariant(index) {
             this.selectedVariant = index
             console.log(index)
+        },
+        addReview(review) {
+            this.reviews.push(review)
         }
     },
     computed: {
