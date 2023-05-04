@@ -10,8 +10,8 @@
     <div id="app">
       <div class="nav-bar"></div>
 
-      <div class="cart">Cesta({{ cart }})</div>
-      <product-display :premium="premium"></product-display>
+      <div class="cart">Cesta({{ cart.length }})</div>
+      <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
     </div>
 
     <script src="./main.js"></script>
